@@ -1,4 +1,5 @@
 # myfitnesspal-api
+
 Library for accessing MyFitnessPal data.
 
 ## Usage
@@ -15,6 +16,7 @@ IMFPSession session = MFPSession.create(loginHandler);
 ```
 
 #### LoginHandler
+
 Since `v0.4` you have to provide a `LoginHandler`
 [implementation](src/main/java/com/gmail/marcosav2010/myfitnesspal/api/LoginHandler.java)
 to get the session cookies since MFP added a captcha and broke the previous way of logging in.
@@ -37,6 +39,7 @@ Diary diary = session.toDiary();
 ```
 
 ### Some examples
+
 ```java
 // Get one specific day data (to fetch specific data keep reading, this way can take more time and get unnecessary data)
 Day day = diary.getFullDay(date);
@@ -74,7 +77,7 @@ dinner.getFood().forEach(food -> {
   String unit = food.getUnit();
   float amnt = food.getAmount();
   float energy = food.getEnergy();
-  
+
   // You can also fetch food nutrients
   float protein = food.get(FoodValues.PROTEIN);
   ...
@@ -82,7 +85,8 @@ dinner.getFood().forEach(food -> {
 ```
 
 ### Exercise data
-Use ```Day``` to check fetched exercise data too:
+
+Use `Day` to check fetched exercise data too:
 
 ```java
 // Make sure you set EXERCISE parameter when fetching...
@@ -112,7 +116,8 @@ day.getStrengthExercises().forEach(strengthExercise -> {
 ```
 
 ### User data and settings
-Check user data and settings using ```UserData```:
+
+Check user data and settings using `UserData`:
 
 ```java
 UserData userData = session.toUser();
@@ -126,3 +131,5 @@ List<String> trackedNutrients = userData.getTrackedNutrients(); // ["carbohydrat
 String email = userData.getEmail();
 ...
 ```
+
+### Notes for Sycing with google sheets
